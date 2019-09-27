@@ -1,31 +1,30 @@
 <template>
-  <v-layout column>
-    <v-flex>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="black" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
-
-      <div class= "pl-4 pr-4 pt-2 pb-2">
-          <input
-            type="email"
-            name="email"
-            v-model="email"
-            placeholder="email" />
-          <br>
-          <input
-            type="password"
-            name="password"
-            v-model="password"
-            placeholder="password" />
-          <br>
-          <div class="error" v-html="error"/>
-          <br>
-          <v-btn class = "black" v-on:click="register">Register</v-btn>
-        </div>
-      </div>
-    </v-flex>
-  </v-layout>
+  <v-container>
+    <v-card>
+      <v-toolbar flat dense class="black" dark>
+        <v-toolbar-title>Register</v-toolbar-title>
+      </v-toolbar>
+      <v-card-text>
+        <v-text-field
+          type="email"
+          name="email"
+          label="email"
+          class="left-align"
+          v-model="email"/>
+        <v-text-field
+          type="password"
+          name="password"
+          label="password"
+          class="left-align"
+          v-model="password"/>
+        <br>
+        <div class="error" v-html="error"/>
+      </v-card-text>
+      <v-card-actions>
+          <v-btn class = "black" v-on:click="register" >Register</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -57,5 +56,9 @@ export default {
 <style scoped>
 .error{
   color: red;
+}
+
+.left-align{
+  text-align: left;
 }
 </style>
