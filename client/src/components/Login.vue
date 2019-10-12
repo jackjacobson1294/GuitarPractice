@@ -3,7 +3,7 @@
   <v-container>
     <v-card>
       <v-toolbar flat dense class="black">
-        <v-toolbar-title>Register</v-toolbar-title>
+        <v-toolbar-title>Login</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
         <v-text-field
@@ -20,7 +20,7 @@
         <div class="error-message" v-html="error"/>
       </v-card-text>
       <v-card-actions>
-          <v-btn class = "white" v-on:click="register" >Register</v-btn>
+          <v-btn class = "white" v-on:click="login" >Login</v-btn>
       </v-card-actions>
     </v-card>
   </v-container>
@@ -38,9 +38,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        await AuthenticationService.register({
+        await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
