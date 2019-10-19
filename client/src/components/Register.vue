@@ -2,7 +2,7 @@
   <v-content>
   <v-container>
     <v-card>
-      <v-toolbar flat dense class="black">
+      <v-toolbar flat dense class="indigo darken-2">
         <v-toolbar-title>Register</v-toolbar-title>
       </v-toolbar>
       <form name="register-form"
@@ -44,10 +44,12 @@ export default {
   methods: {
     async register () {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
